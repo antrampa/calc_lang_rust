@@ -62,7 +62,7 @@ jobs:
         shell: pwsh
         run: |
           $archive = "calc_lang-$env:GITHUB_REF_NAME-${{ matrix.name }}.zip"
-          Compress-Archive -Path "target/${{ matrix.target }}/release/calc_lang.exe", README.md, LICENSE -DestinationPath $archive
+          Compress-Archive -Path "target/${{ matrix.target }}/release/calc_lang.exe", README.md, LICENSE, install/install.bat, install/install.ps1 -DestinationPath $archive
           "ASSET=$archive" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       - name: Upload to the GitHub Release
